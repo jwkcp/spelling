@@ -1,0 +1,141 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: small;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#box-info a {
+    text-decoration: none;
+    outline: none;
+    cursor: default;
+    float: right;
+    padding: 1px;
+    color: rgb(45, 180, 30);
+    font-weight: bold;
+}
+
+#container {
+    top: 20px;
+    width: 300px;
+    height: 150px;
+    padding: 3px;
+    margin: 10px;
+}
+
+.box-result {
+    margin-top: 5px;
+}
+
+.box-result-item {
+    height: 60px;
+    padding: 3px;
+    overflow: hidden;
+}
+
+#box-info {
+    bottom: 0;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.box-info-item {
+    float: left;
+    padding: 1px;
+}
+
+.box-info-item-circle {
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.box-info-item-text {
+    margin-left: 1px;
+    margin-right: 7px
+}
+
+#red-circle {
+    background-color: red;
+}
+.re_red {
+    color: red;
+    font-weight: bold;
+    background-color: papayawhip;
+}
+
+#green-circle {
+    background-color: green;
+}
+.re_green {
+    color: green;
+    font-weight: bold;
+    background-color: papayawhip;
+}
+
+#purple-circle {
+    background-color: purple;
+}
+.re_purple {
+    color: purple;
+    font-weight: bold;
+    background-color: papayawhip;
+}
+
+#label-origin {
+    font-weight: bold;
+    color: black;
+}
+
+#label-correct {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+}
+
+
