@@ -4,6 +4,9 @@
 # 사용법
 웹페이지에서 맞춤법 검사를 원하는 문장을 드래그 한 후 '한국어 맞춤법 검사기' 버튼을 누르면 즉시 결과를 볼 수 있습니다.
 
+# 다운로드
+[크롬 웹스토어 방문하기](https://chrome.google.com/webstore/detail/%ED%95%9C%EA%B5%AD%EC%96%B4-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC%EA%B8%B0/jglndaljomjcobaaoohfccecjcekcfgo?hl=ko)
+
 # 코멘트
 1. 웹개발(?)은 처음이어서 Javascript, Chrome Extension, CSS 등을 처음 사용해봤습니다.
 2. Github도 처음으로 업로드하는 프로젝트라 이렇게 하는게 맞는지 모르겠네요. 시간이 지날수록 IT관리업무를 위주로 해오다보니 도구들이 많이 녹슬었네요. 지금부터라도 다시 노력해야겠습니다.
