@@ -3,13 +3,32 @@ $(document).ready(function() {
         bgPage.executeInjectedScript(function(result) {
 
             if (!result.selText) {
-                $(container).css("width", "300px");
-                $(container).css("height", "150px");
-                $(container).css("text-align", "center");
-                $(container).css("font-weight", "bold");
-                $(container).css("font-size", "large");
-                $(container).css("padding", "20px");
-                $(container).html("검사할 대상이 없습니다.<br/><br/><br/><img src=\"images\\thinking.png\" width=\"100\" height=\"100\">");
+
+                var $container = $('#container');
+
+                $container
+                    .empty()
+                    .append("<h2>검사할 대상이 없습니다.</h2>")
+                    .append("<div></div>");
+
+                var $containerH2 = $container.find('h2'),
+                    $containerDiv = $container.find('div');
+
+                $containerH2
+                    .css({
+                        "text-align" : "center",
+                        "font-weight" : "bold",
+                        "font-size" : "large",
+                        "margin-top" : "10px"
+                    });
+
+                $containerDiv
+                    .append("<img src='images\\thinking.png\' width='100' height='100'/>")
+                    .css({
+                        "text-align" : "center",
+                        "margin" : "20px"
+                    });
+
                 return;
             }
 
@@ -27,18 +46,46 @@ $(document).ready(function() {
 
                 if (0 < json_obj.message.result.errata_count) {
 
-                    $(origin).text(result.selText);
-                    //$(correct).text(json_obj.message.result.html);
-                    $(correct).html(json_obj.message.result.html);
+                    $('#origin').text(result.selText);
+                    $('#correct').html(json_obj.message.result.html);
                 }
                 else {
-                    $(container).css("width", "300px");
-                    $(container).css("height", "150px");
-                    $(container).css("text-align", "center");
-                    $(container).css("font-weight", "bold");
-                    $(container).css("font-size", "large");
-                    $(container).css("padding", "20px");
-                    $(container).html("맞춤법이 정확합니다.<br/><br/><br/><img src=\"images\\fireworks.png\" width=\"100\" height=\"100\">");
+                    var $container = $('#container');
+
+                    $container
+                        .empty()
+                        .append("<h2>맞춤법이 정확합니다.</h2>")
+                        .append("<p>\"" + result.selText + "\"</p>")
+                        .append("<div></div>");
+
+                    var $containerH2 = $container.find('h2');
+                    var $containerP = $container.find('p');
+                    var $containerDiv = $container.find('div');
+
+                    $containerH2
+                        .css({
+                            "text-align" : "center",
+                            "font-weight" : "bold",
+                            "font-size" : "large",
+                            "margin-top" : "10px"
+                        });
+
+
+                    $containerP
+                        .css({
+                            "text-align" : "center",
+                            "font-size" : "small",
+                            "margin-top" : "5px",
+                            "color" : "gray",
+                            "font-style" : "Italic"
+                        });
+
+                    $containerDiv
+                        .css({
+                            "text-align" : "center",
+                            "margin" : "20px"
+                        })
+                        .append("<img src='images\\fireworks.png\' width='100' height='100'/>");
                 }
             };
             client.open("GET", url, false);
