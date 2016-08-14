@@ -22,6 +22,18 @@
     "default_icon": "images/check.png"
   },
 
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+T",
+        "mac": "Command+T",
+        "chromeos": "Ctrl+T",
+        "linux": "Ctrl+T"
+      }
+    }
+
+  },
+
   "permissions": [
     "activeTab"
   ]
