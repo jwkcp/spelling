@@ -25,10 +25,10 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "windows": "Ctrl+T",
-        "mac": "Command+T",
-        "chromeos": "Ctrl+T",
-        "linux": "Ctrl+T"
+        "windows": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K",
+        "chromeos": "Ctrl+Shift+K",
+        "linux": "Ctrl+Shift+K"
       }
     }
 
