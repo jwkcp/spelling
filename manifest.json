@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "한국어 맞춤법 검사기",
-  "description": "한국어 맞춤법 검사기입니다. 검사를 원하는 부분을 드레그하여 선택 후 아이콘을 누르면 검사 결과가 나옵니다..",
-  "version": "1.2",
+  "description": "한국어 맞춤법 검사기입니다. 검사를 원하는 부분을 드레그하여 선택 후 아이콘 또는 단축키(Ctrl+Shift+K)를 누르면 검사 결과가 나옵니다..",
+  "version": "1.3",
 
   "background": {
     "scripts": ["background.js"],
