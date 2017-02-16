@@ -29,6 +29,10 @@ $(document).ready(function() {
 
         var origin_text = $("#check-target").val();
 
+        if ("" == origin_text) {
+            return;
+        }
+
         spellChecker(origin_text, function(result_html, error_count) {
             $('#check-result').html(result_html);
 
