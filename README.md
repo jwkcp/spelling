@@ -2,7 +2,7 @@
 네이버 서비스를 이용한 한국어 맞춤법 검사기입니다. 
 
 # 사용법
-웹페이지에서 맞춤법 검사를 원하는 문장을 드래그 한 후 '한국어 맞춤법 검사기' 버튼을 누르면 즉시 결과를 볼 수 있습니다.
+웹페이지에서 맞춤법 검사를 원하는 문장을 드래그 한 후 '한국어 맞춤법 검사기' 버튼 또는 단축키(Ctrl+Shift+K)를 누르면 즉시 결과를 볼 수 있습니다.
 
 # 다운로드
 [크롬 웹스토어 방문하기](https://chrome.google.com/webstore/detail/%ED%95%9C%EA%B5%AD%EC%96%B4-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC%EA%B8%B0/jglndaljomjcobaaoohfccecjcekcfgo?hl=ko)

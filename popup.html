@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>맞춤법 검사기</title>
-    <link href="popup.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
     <div id="container">
         <div class="box-result">
             <div class="box-result-item">
-                <p><span id="label-origin"></span><span id="origin"></span></p>
+                <span id="check-target-label" class="label label-default">대상</span>
+                <textarea id="check-target" class="form-control" rows="3"></textarea>
             </div>
-            <br/>
             <div class="box-result-item">
-                <p><span id="label-correct"></span><span id="correct"></span></p>
+                <span id="check-result-label" class="label label-default">결과</span>
+                <div id="check-result" class="form-control"></div>
             </div>
         </div>
 
@@ -36,8 +38,22 @@
             <a href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&oquery=네이버+맞춤법+검사기&ie=utf8&query=네이버+맞춤법+검사기" title="이 맞춤법 검사기는 네이버의 기능을 이용합니다." target="_blank">N</a>
         </div>
 
+        <button id="check-button" class="btn btn-success form-control">맞춤법 검사하기</button>
+
+        <hr>
+        <small class="googleads">아래 광고를 한번씩 눌러 주시면 운영에 큰 도움이 됩니다. 고마워요!</small>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- chromeex-spellchecker(295x50) -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:295px;height:50px"
+             data-ad-client="ca-pub-4723050202844906"
+             data-ad-slot="8755962473"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
     <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="popup.js"></script>
 </body>
 </html>
