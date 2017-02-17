@@ -28,15 +28,17 @@ $(document).ready(function() {
     $("#check-button").click(function() {
 
         var origin_text = $("#check-target").val();
+        var $check_result_label = $('#check-result-label');
 
-        if ("" == origin_text) {
+        if ("" == $.trim(origin_text)) {
+            $('#check-result').text("");
+            $check_result_label.removeClass("label-default label-success label-danger").addClass("label-default");
+            $check_result_label.text("결과");
             return;
         }
 
         spellChecker(origin_text, function(result_html, error_count) {
             $('#check-result').html(result_html);
-
-            var $check_result_label = $('#check-result-label');
 
             if (0 < error_count) {
                 $check_result_label.removeClass("label-default label-success label-danger").addClass("label-danger");
