@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>맞춤법 검사기</title>
     <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="correct-display.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -11,10 +12,12 @@
         <div class="box-result">
             <div class="box-result-item">
                 <span id="check-target-label" class="label label-default">대상</span>
-                <textarea id="check-target" class="form-control" rows="3"></textarea>
+                <textarea id="check-target" class="form-control" rows="6"></textarea>
             </div>
             <div class="box-result-item">
                 <span id="check-result-label" class="label label-default">결과</span>
+                <!-- <span class="label label-default">마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</span> -->
+                <small>&nbsp;&nbsp;마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</small>
                 <div id="check-result" class="form-control"></div>
             </div>
         </div>
@@ -40,10 +43,11 @@
 
         <button id="check-button" class="btn btn-success form-control">맞춤법 검사하기</button>
 
+        <div class="check-fs-container">
+          <a href="#" id="check-fs-link"><mark>&nbsp;검사 결과를 전체 화면으로 보기&nbsp;</mark></a>
+        </div>
         <hr>
-        <!--
-        <small class="googleads">아래 광고를 한번씩 눌러 주시면 운영에 큰 도움이 됩니다. 고마워요!</small>
-        -->
+
         <small class="googleads">도움이 되셨다면 기부를 통해 도움을 주실 수 있습니다. 고마워요!</small>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_s-xclick">

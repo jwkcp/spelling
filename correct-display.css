@@ -1,0 +1,51 @@
+#red-circle {
+  background-color: red;
+}
+.re_red {
+  color: red;
+  /* font-weight: bold; */
+  background-color: papayawhip;
+}
+
+#green-circle {
+  background-color: green;
+}
+.re_green {
+  color: green;
+  /* font-weight: bold; */
+  background-color: papayawhip;
+}
+
+#purple-circle {
+  background-color: purple;
+}
+.re_purple {
+  color: purple;
+  /* font-weight: bold; */
+  background-color: papayawhip;
+}
+
+#box-info {
+  bottom: 0;
+  text-align: center;
+  font-style: italic;
+  padding: 0 5px;
+  height: 35px;
+}
+
+.box-info-item {
+  float: left;
+  padding: 1px;
+}
+
+.box-info-item-circle {
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.box-info-item-text {
+  margin-left: 1px;
+  margin-right: 7px
+}
