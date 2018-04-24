@@ -1,6 +1,6 @@
 $(document).ready(function() {
     function spellChecker(origin_text, callback) {
-        var url = 'https://m.search.naver.com/p/csearch/dcontent/spellchecker.nhn?_callback=window.__jindo2_callback._spellingCheck_0&q=';
+        var url = 'https://m.search.naver.com/p/csearch/ocontent/spellchecker.nhn?_callback=window.__jindo2_callback._spellingCheck_0&q=';
         var client = new XMLHttpRequest();
         var json_text = '';
         var json_obj = '';
