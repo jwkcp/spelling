@@ -22,6 +22,10 @@ $(document).ready(function() {
         }
 
         client.open("GET", url, true);
+        // 2018.05.11 referer 체크 추가
+        client.setRequestHeader('Access-Control-Allow-Origin', '*');
+        client.setRequestHeader('Referer', 'https://search.naver.com/search.naver?ie=UTF-8&query=%EB%84%A4%EC%9D%B4%EB%B2%84%EB%A7%9E%EC%B6%A4%EB%B2%95&sm=chr_hty');
+        // ...
         client.send(null);
     }
 

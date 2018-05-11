@@ -9,14 +9,27 @@
 </head>
 <body>
     <div id="container">
-        <div class="box-result">
+        <div class="alert alert-danger" role="alert">
+            <mark>네이버</mark>에서 맞춤법 검사 기능을 헤더 일부 값을 이용해 차단하였고 크롬 브라우저가 이를 변경하기 못하도록 막고 있어 현재 맞춤법 검사 기능이 제대로 동작하지 않고 있습니다. 빠른 시일 내에 해결책을 찾아 업데이트하도록 하겠습니다.
+        </div>
+        <div class="alert alert-warning" role="alert">
+            임시로 아래와 같이 다음의 맞춤법 검사 기능을 대신 이용할 수 있도록 하였습니다. <br/>크롬의 확장프로그램 최대 창 크기가 800 x 600으로 스크롤을 해야 검사버튼이 보입니다. 불편을 드려서 죄송합니다.
+        </div>
+        
+        <iframe width="800px" height="600px" frameborder="0" scrolling="yes" src="http://dic.daum.net/grammar_checker.do">이 브라우저는 iframe을 지원하지 않습니다.</iframe>
+        <br/>
+        <div class="text-center mt-1 mb-1">
+            <a href="https://m.search.naver.com/search.naver?ie=UTF-8&query=%EB%A7%9E%EC%B6%A4%EB%B2%95+%EA%B2%80%EC%82%AC%EA%B8%B0&sm=chr_hty&where=m" target="_blank" class="btn btn-success btn-block">네이버 맞춤법 검사 바로가기</a>
+        </div>
+        
+        <!-- 2018-05-11 크롬에서 referer 변경을 막아서 해결방법을 찾을 때까지 iframe으로 대체 -->
+        <!-- <div class="box-result">
             <div class="box-result-item">
                 <span id="check-target-label" class="label label-default">대상</span>
                 <textarea id="check-target" class="form-control" rows="6"></textarea>
             </div>
             <div class="box-result-item">
                 <span id="check-result-label" class="label label-default">결과</span>
-                <!-- <span class="label label-default">마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</span> -->
                 <small>&nbsp;&nbsp;마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</small>
                 <div id="check-result" class="form-control"></div>
             </div>
@@ -56,7 +69,7 @@
             <input class="donation-button" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 
         </form>
-        <small class="googleads">페이팔(Paypal)로 기부하기</small>
+        <small class="googleads">페이팔(Paypal)로 기부하기</small> -->
 
     </div>
     <script type="text/javascript" src="jquery-2.2.4.min.js"></script>

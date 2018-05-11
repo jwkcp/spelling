@@ -64,7 +64,10 @@ textarea {
 
 #container {
     top: 20px;
-    width: 450px;
+    /* 2018.05.11 네이버 referer 체크와 chrome 변경 불가 문제로 다음 검사기를 임시로 iframe으로 삽입하며 변경함. */
+    /* width: 450px; */
+    /* height: 600px; */
+    width: 800px;
     height: 600px;
     padding: 3px;
     margin: 10px;
