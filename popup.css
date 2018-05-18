@@ -64,11 +64,9 @@ textarea {
 
 #container {
     top: 20px;
-    /* 2018.05.11 네이버 referer 체크와 chrome 변경 불가 문제로 다음 검사기를 임시로 iframe으로 삽입하며 변경함. */
-    /* width: 450px; */
-    /* height: 600px; */
-    width: 800px;
-    height: 600px;
+    width: 450px;
+    height: 540px;
+    
     padding: 3px;
     margin: 10px;
 }
@@ -89,12 +87,12 @@ textarea {
     height: 130px;
 }
 
-.donation-button {
+/* .donation-button {
     padding-top: 10px;
     padding-bottom: 5px;
     margin: 0 auto;
     display: block;
-}
+} */
 
 .check-fs-container {
     margin: 0 auto;
@@ -110,4 +108,16 @@ textarea {
     text-align: center;
     color: gray;
     display: block;
+}
+
+.wrong {
+    color: red;
+}
+
+.paypal {
+    color: #0065B1;
+}
+
+.donation {
+    margin-top: 10px;
 }
