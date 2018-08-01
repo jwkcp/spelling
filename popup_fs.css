@@ -32,3 +32,8 @@
   color: gray;
   display: block;
 }
+
+.wrong {
+  color: red;
+  background-color: rgb(255, 255, 226);
+}
