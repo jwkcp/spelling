@@ -85,7 +85,7 @@ $(document).ready(function() {
         // 입력 값이 공백일 경우 처리
         if ("" == $.trim(origin_text)) {
             $('#check-result').text("");
-            $check_result_label.removeClass("label-default label-success label-danger").addClass("label-default");
+            $check_result_label.removeClass("badge-secondary badge-success badge-danger").addClass("badge-secondary");
             $check_result_label.text("결과");
             return;
         }
@@ -95,11 +95,11 @@ $(document).ready(function() {
             $('#check-result').html(result_html);
         
             if (0 < error_count) {
-                $check_result_label.removeClass("label-default label-success label-danger").addClass("label-danger");
+                $check_result_label.removeClass("badge-secondary badge-success badge-danger").addClass("badge-danger");
                 $check_result_label.text("맞춤법이 틀렸습니다 (" + error_count + ")");
             }
             else {
-                $check_result_label.removeClass("label-default label-success label-danger").addClass("label-success");
+                $check_result_label.removeClass("badge-secondary badge-success badge-danger").addClass("badge-success");
                 $check_result_label.text("맞춤법이 정확합니다");
             }
         

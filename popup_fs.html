@@ -4,36 +4,40 @@
   <meta charset="UTF-8">
   <title>한국어 맞춤법 검사기</title>
 
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="popup_fs.css">
   <link rel="stylesheet" href="correct-display.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  
 </head>
 <body>
   <div class="fs-container">
-    
-    <div class="row">
-      <div class="fs-header">
-        <div class="col-xs-6">
-          <h2><span class="label label-default" id="fs-header-target">원본</span></h2>
+    <div class="fs-header">
+      <div class="row">
+        <div class="col">
+          <h2><span class="badge badge-secondary" id="fs-header-target">원본</span></h2>
         </div>
-        <div class="col-xs-6">
-          <h2><span class="label label-success" id="fs-header-result">교정본</span><small>&nbsp;&nbsp;마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</small></h2>
+        <div class="col">
+          <h2>
+            <span class="badge badge-secondary" id="fs-header-result">교정본</span>
+            <small class="text-muted">&nbsp;마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</small>
+          </h2>
         </div>
       </div>
     </div>
     <hr>
-    <div class="row">
-      <div class="fs-contents">
-        <div class="col-xs-6">
+      
+    <div class="fs-contents"></div>
+      <div class="row">
+        <div class="col">
           <div id="fs-contents-target"></div>
         </div>
-        <div class="col-xs-6">
+        <div class="col">
           <div id="fs-contents-result"></div>
         </div>
       </div>
     </div>
 
+    
     <!-- <hr>
 
     <div class="row">
@@ -62,11 +66,9 @@
 
   </div>
 
-  <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="popper.min.js"></script>
   <script type="text/javascript" src="bootstrap.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="popup_fs.js"></script>
 </body>
 </html>
