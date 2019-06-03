@@ -37,7 +37,10 @@
                     <span id="check-result-label" class="badge badge-secondary">결과</span>
                     <small class="text-muted">&nbsp;마우스를 올리면 복사하기 편하도록 서식이 제거됩니다.</small>
                 </div>
-                <div id="check-result" class="form-control"></div>
+                <div>
+                    <div id="check-result" class="form-control"></div>
+                    <small id="check-result-msg" class="text-muted"></small>
+                </div>
             </div>
         </div>
 
@@ -66,16 +69,23 @@
           <a href="#" id="check-fs-link"><mark>&nbsp;검사 결과를 전체 화면으로 보기&nbsp;</mark></a>
         </div>
         <hr />
-
-        <small class="text-muted">
-            네이버가 맞춤법 검사 기능을 차단한 이후 이 맞춤법 검사기는 '1등 취업 사이트 사람인(saramin.co.kr)'의 기능을 이용하고 있습니다. 사람인 많이 이용해주세요.
-        </small>
         
         <div class="donation text-muted">
-            <small>
-                도움이 되셨다면 <a href="https://paypal.me/jwgo/1" target="_blank" class="paypal">페이팔(PayPal)로 $1 기부하기</a>를 통해 도움을 주실 수 있습니다. 고맙습니다!
-            </small>
+            <div class="donation-info">
+                <small>
+                    도움이 되셨다면 <a href="https://paypal.me/jwgo/1" target="_blank" class="paypal">페이팔(PayPal)</a> 또는 오른족 QR코드를 찍어 <a href="https://qr.kakaopay.com/281006011000050695557538">카카오페이 기부하기</a>를 통해 도움을 주실 수 있습니다. 작은 기부라도 이 프로젝트를 지속하고 유지하는 큰 힘이 됩니다. 고맙습니다.
+                </small>
+            </div>
+            <div class="donation-qr">
+                <img src='https://i.postimg.cc/HWc6WT1t/kakao-donation.png' />
+            </div>
         </div>
+
+        <hr />
+
+        <small class="text-muted ads">
+            네이버가 맞춤법 검사 기능을 차단한 이후 이 맞춤법 검사기는 '1등 취업 사이트 사람인(saramin.co.kr)'의 기능을 이용하고 있습니다. 사람인 많이 이용해주세요.
+        </small>
         
         <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_s-xclick">

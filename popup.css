@@ -82,7 +82,7 @@ textarea {
 }
 
 #check-result {
-    margin-top: 5px;
+    margin-top: 5px;    
     overflow: auto;
     height: 130px;
 }
@@ -119,5 +119,25 @@ textarea {
 }
 
 .donation {
-    margin-top: 10px;
+    margin: 10px 0;
+    display: flex;
+}
+
+.donation-info {
+    flex: 3;
+    line-height: 1.6rem;
+}
+
+.donation-qr {
+    flex: 2;
+    text-align: center;
+}
+
+.donation-qr img {
+    width: 130px;
+    height: 130px;
+}
+
+.ads {
+    line-height: 1.5rem;
 }
