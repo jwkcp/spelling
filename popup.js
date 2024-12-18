@@ -1,5 +1,4 @@
-const NAVER_URL = "https://m.search.naver.com/p/csearch/ocontent/spellchecker.nhn?_callback=window.__jindo2_callback._spellingCheck_0&q=";
-const SARAMIN_URL = "http://www.saramin.co.kr/zf_user/tools/spell-check?content=";
+const SARAMIN_URL = "https://www.saramin.co.kr/zf_user/tools/spell-check?content=";
 
 // 맞춤법 검사기 클래스
 var spellChecker = {
@@ -79,34 +78,56 @@ function parseForSaramin(resp) {
 };
 
 $(document).ready(function() {
+    chrome.storage.local.get(['target', 'result', 'labelClass', 'labelValue'], function(data) {
+        var keepResultHtml = data.result;
+        var keepResultText = $(data.result).text();
+        
+        $("#fs-header-result").addClass(data.labelClass);
+        $("#fs-header-result").text(data.labelValue);
+        
+        $("#fs-contents-target").html(data.target);
+        $("#fs-contents-result").html(data.result);
+    });
 
     var keepResultHtml;
     var keepResultText;
     
     var sc = Object.create(spellChecker);
     
-    var client = new XMLHttpRequest();
-    function run(origin_text, callback) {
-        client.onreadystatechange = function () {
-            if (client.readyState === XMLHttpRequest.DONE && client.status === 200) {
-                
-                var results = sc.parse(client.responseText);
-                
-                if ("function" === typeof callback) {
-                    callback(
-                        results.text,
-                        results.count,
-                        results.msg
-                    );
-                }
+    // 기존 XMLHttpRequest 대신 fetch 사용
+    async function run(origin_text, callback) {
+        try {
+            const response = await fetch(SARAMIN_URL + origin_text, {
+                method: 'GET',
+                credentials: 'include', // 쿠키 포함
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors' // CORS 모드 명시
+            });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
+            
+            const responseText = await response.text();
+            const results = parseForSaramin(responseText); // sc.parse 대신 직접 파싱 함수 사용
+            
+            if (typeof callback === "function") {
+                callback(
+                    results.text,
+                    results.count,
+                    results.msg
+                );
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // 사용자에게 에러 표시
+            $('#check-result').html("맞춤법 검사 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+            $('#check-result-label').removeClass("badge-secondary badge-success badge-danger").addClass("badge-danger");
+            $('#check-result-label').text("오류 발생");
         }
-        
-        sc.parse = parseForSaramin;
-        sc.url = SARAMIN_URL + origin_text;
-        
-        client.open("GET", sc.url, true);
-        client.send(null);
     }
     
 
@@ -161,26 +182,64 @@ $(document).ready(function() {
         }
     });
 
-    chrome.runtime.getBackgroundPage(function(bgPage) {
-        bgPage.executeInjectedScript(function(result) {
-            if (!result.selText) {
+    chrome.runtime.sendMessage({type: "executeScript"});
+
+    // 선택된 텍스트를 받기 위한 리스너 추가
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.type === "setSelectedText") {
+            const selectedText = message.text;
+            if (!selectedText) {
                 $('#check-target').attr({
                     "placeholder": "검사할 대상을 마우스로 드레그하거나, 여기에 직접 입력하여 맞춤법 검사를 할 수 있습니다. (단축키: 윈도우 Ctrl+Shift+E, 맥 Cmd+Shift+E)"
                 }).focus();
-
                 return;
             }
 
-            $("#check-target").text(result.selText);
+            $("#check-target").val(selectedText);
             $("#check-button").click();
-        });
+        }
     });
     
-    $("#check-fs-link").click(function () {
+    $("#check-fs-link").click(async function () {
         if (keepResultText) {
-            window.open("popup_fs.html", "popup_window", "width=" + screen.availWidth + ", height=" + screen.availHeight + ", scrollbars=no");
-        }
-        else {
+            try {
+                await new Promise((resolve, reject) => {
+                    chrome.storage.local.set({
+                        target: $("#check-target").val(),
+                        result: keepResultHtml,
+                        labelClass: $("#check-result-label").attr('class'),
+                        labelValue: $("#check-result-label").text()
+                    }, () => {
+                        if (chrome.runtime.lastError) {
+                            reject(chrome.runtime.lastError);
+                        } else {
+                            resolve();
+                        }
+                    });
+                });
+
+                // 화면 크기에 맞춰 창 크기와 위치 설정
+                const width = screen.availWidth;
+                const height = screen.availHeight;
+                const left = (screen.availLeft || 0);
+                const top = (screen.availTop || 0);
+
+                const fsWindow = window.open(
+                    'popup_fs.html', 
+                    'spell_check_result',
+                    `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes`
+                );
+
+                if (fsWindow) {
+                    setTimeout(() => {
+                        fsWindow.postMessage({ type: 'LOAD_SPELL_CHECK_DATA' }, '*');
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Failed to save data:', error);
+                $("#check-fs-link").text("오류가 발생했습니다. 다시 시도해주세요.");
+            }
+        } else {
             $("#check-fs-link").text("맞춤법 검사를 먼저 해야 해요!");
         }
     });

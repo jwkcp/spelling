@@ -1,27 +1,46 @@
-$(document).ready(function() {
-    var parentTarget = $("#check-target", opener.document).val();
-    var parentResult = $("#check-result", opener.document).html();
-    var labelClass = $("#check-result-label", opener.document).attr('class');
-    var labelValue = $("#check-result-label", opener.document).text();
+document.addEventListener('DOMContentLoaded', function() {
+    // jQuery 로드 확인
+    if (typeof $ === 'undefined') {
+        console.error('jQuery is not loaded');
+        return;
+    }
 
-    var keepResultHtml = parentResult;
-    var keepResultText = $("#check-result", opener.document).text();
+    function loadSpellCheckData() {
+        chrome.storage.local.get(['target', 'result', 'labelClass', 'labelValue'], function(data) {
+            if (chrome.runtime.lastError) {
+                console.error('Failed to load data:', chrome.runtime.lastError);
+                return;
+            }
+            
+            $("#fs-header-result").addClass(data.labelClass);
+            $("#fs-header-result").text(data.labelValue);
+            
+            $("#fs-contents-target").html(data.target);
+            $("#fs-contents-result").html(data.result);
 
-    $('#fs-contents-result').mouseenter(function () {
-        if (keepResultText) {
-            $('#fs-contents-result').html(keepResultText);
+            // 마우스 오버 이벤트 핸들러
+            const $resultElement = $('#fs-contents-result');
+            const resultHtml = data.result;
+            const resultText = $('<div>').html(resultHtml).text();
+
+            $resultElement.off('mouseenter mouseleave');
+            $resultElement.on('mouseenter', function() {
+                $(this).html(resultText);
+            });
+
+            $resultElement.on('mouseleave', function() {
+                $(this).html(resultHtml);
+            });
+        });
+    }
+
+    // 메시지 수신 리스너
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'LOAD_SPELL_CHECK_DATA') {
+            loadSpellCheckData();
         }
     });
 
-    $('#fs-contents-result').mouseleave(function () {
-        if (keepResultHtml) {
-            $('#fs-contents-result').html(keepResultHtml);
-        }
-    });
-
-    $("#fs-header-result").addClass(labelClass);
-    $("#fs-header-result").text(labelValue);
-
-    $("#fs-contents-target").html(parentTarget);
-    $("#fs-contents-result").html(parentResult);
-})
+    // 페이지 로드 시에도 시도
+    document.addEventListener('DOMContentLoaded', loadSpellCheckData);
+});
